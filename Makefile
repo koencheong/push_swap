@@ -1,5 +1,5 @@
 NAME = push_swap
-SRC = 1_push_swap.c 2_operations.c 3_insertion_sort.c 4_merge_sort.c
+SRC = 1_push_swap.c 2_operations.c 3_insertion_sort.c 4_radix_sort.c 5_utils.c 6_checking.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 LIB = ./ft_printf/ft_printf.a

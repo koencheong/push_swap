@@ -12,48 +12,6 @@
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack **stack)
-{
-    if (stack == NULL)
-		return (1);
-	
-	t_stack *prev;
-    t_stack *curr;
-    
-	prev = *stack;
-	curr = (*stack)->next;
-    while (curr != NULL)
-	{
-        if ((prev->num) > (curr->num))
-            return 0;
-        prev = curr;
-        curr = curr->next;
-    }
-    return (1);
-}
-
-void	printlist(t_stack *stack, char c)
-{
-	t_stack *current;
-
-	current = stack;
-	if (c == 'a')
-		ft_printf("Stack A:\n");
-	else if (c == 'b')
-		ft_printf("\nStack B:\n");
-	
-	if (stack == NULL)
-	{
-		ft_printf("Linked list is empty.\n");
-		return ;
-	}
-	while (current != NULL)
-	{
-		ft_printf("%d\n", current->num);
-		current = current->next;
-	}
-}
-
 int	main(int argc, char **argv)
 {
 	int		i;
@@ -62,6 +20,7 @@ int	main(int argc, char **argv)
 	t_stack	*stackA;
 	t_stack	*stackB;
 	int		len;
+	int		j;
 	
 	len = 0;
 	i = 1;
@@ -72,31 +31,37 @@ int	main(int argc, char **argv)
 	{
 		while (i < argc)
 		{
+			j = 0;
+			while (argv[i][j] != '\0')
+			{
+				if (argv[i][j] != '-' && (argv[i][j] < '0' || argv[i][j] > '9'))
+					exit_function("Error", 1);
+				j++;
+			}
 			stackA = malloc(sizeof(t_stack));
-			num = atoi(argv[i]);
+			num =  atoi(argv[i]);
 			stackA->num = num;
 			stackA->next = top;
 			top = stackA;
 			i++;
 		}
-		printlist(stackA, 'a');
-		printlist(stackB, 'b');
+		if (has_duplicates(&stackA))
+			exit_function("Error", 1);
+		len = stack_len(stackA, len);
 	}
-	// insertion_sort(&stackA, &stackB);
-	merge_sort(&stackA, &stackB, len);
-	printlist(stackA, 'a');
-	printlist(stackB, 'b');
-	// if (is_sorted(stackA))
+	else
+	{
+		free(stackB);
+		exit_function("Error", 1);
+	}
+	stackA = rescaling(stackA, len);
+	radix_sort(&stackA, &stackB);
+	// printlist(stackA, 'a');
+	// print_index_list(stackA, 'a');
+	// if (is_sorted(&stackA))
 	// 	ft_printf("Sorted :)\n");
 	// else
 	// 	ft_printf("Not sorted :(\n");
-	// push(&stackB, &stackA, 'b');
-	// printlist(stackA, 'a');
-	// printlist(stackB, 'b');
-	// first_to_last(&stackA, 'a');
-	// printlist(stackA, 'a');
-	// last_to_first(&stackB, 'b');
-	// printlist(stackB, 'b');
-	// free(stackA);
-	// free(stackB);
+	free_list(stackA);
+	free_list(stackB);
 }

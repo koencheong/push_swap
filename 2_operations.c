@@ -28,9 +28,9 @@ void	push(t_stack **to, t_stack **from, char c)
 	*from = newtopFrom;
 
 	if (c == 'a')
-		ft_printf("\n[Executed pa...]\n");
+		ft_printf("pa\n");
 	else if (c == 'b')
-		ft_printf("\n[Executed pb...]\n");
+		ft_printf("pb\n");
 
 }
 
@@ -53,9 +53,9 @@ void	swap_first_two(t_stack **stack, char c)
 	*stack = temp2;
 
 	if (c == 'a')
-		ft_printf("\n[Executed sa...]\n");
+		ft_printf("sa\n");
 	else if (c == 'b')
-		ft_printf("\n[Executed sb...]\n");
+		ft_printf("sb\n");
 }
 
 // rra, rrb
@@ -63,7 +63,7 @@ void	last_to_first(t_stack **stack, char c)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		ft_printf("\n[Nothing to be reverse rotated.]\n");
+		// ft_printf("\n[Nothing to be reverse rotated.]\n");
 		return ;
 	}
 	
@@ -84,9 +84,9 @@ void	last_to_first(t_stack **stack, char c)
 
 	*stack = last;
 	if (c == 'a')
-		ft_printf("\n[Executed rra...]\n");
+		ft_printf("rra\n");
 	else if (c == 'b')
-		ft_printf("\n[Executed rrb...]\n");
+		ft_printf("rrb\n");
 }
 
 // ra, rb
@@ -94,7 +94,7 @@ void	first_to_last(t_stack **stack, char c)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		ft_printf("\n[Nothing to be rotated.]\n");
+		// ft_printf("\n[Nothing to be rotated.]\n");
 		return ;
 	}
 
@@ -112,7 +112,7 @@ void	first_to_last(t_stack **stack, char c)
 	ori_first->next = NULL;
 	*stack = new_first;
 	if (c == 'a')
-		ft_printf("\n[Executed ra...]\n");
+		ft_printf("ra\n");
 	else if (c == 'b')
-		ft_printf("\n[Executed rb...]\n");
+		ft_printf("rb\n");
 }
