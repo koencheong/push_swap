@@ -12,9 +12,10 @@
 
 #include "push_swap.h"
 
-void	insertion_sort(t_stack **stackA, t_stack **stackB)
+void	insertion_sort(t_list **stackA, t_list **stackB)
 {
-	t_stack *temp;
+	
+	t_list *temp;
 
     while (*stackA != NULL)
     {
@@ -22,12 +23,12 @@ void	insertion_sort(t_stack **stackA, t_stack **stackB)
 
 		if (*stackB == NULL)
 			push(stackB, stackA, 'b');
-        if (temp->num < (*stackB)->num)
+        if (temp->index < (*stackB)->index)
 		{
 			push(stackB, stackA, 'b');
 			first_to_last(stackB, 'b');
 		}
-		else if (temp->num > (*stackB)->num)
+		else if (temp->index > (*stackB)->index)
 			push(stackB, stackA, 'b');
 		temp = *stackA;
     }

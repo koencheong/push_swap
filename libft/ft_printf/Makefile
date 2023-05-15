@@ -4,7 +4,7 @@ SRC = ft_putchar.c ft_putstr.c ft_putnbr.c ft_printf.c \
 
 OBJ = ${SRC:.c=.o}
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I ./
 RM = rm -f

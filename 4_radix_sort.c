@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_merge_sort.c                                     :+:      :+:    :+:   */
+/*   4_radix_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 22:40:05 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/09 22:40:05 by kcheong          ###   ########.fr       */
+/*   Created: 2023/05/14 17:39:14 by kcheong           #+#    #+#             */
+/*   Updated: 2023/05/14 17:39:14 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *find_max_unindexed(t_stack *stack)
+t_list *find_max_unindexed(t_list *stack)
 {
-    t_stack *max_node;
+    t_list *max_node;
     int     max_num;
 
     max_node = NULL;
@@ -33,10 +33,10 @@ t_stack *find_max_unindexed(t_stack *stack)
     return (max_node);
 }
 
-t_stack	*rescaling(t_stack *stack, int size)
+t_list	*rescaling(t_list *stack, int size)
 {
-	t_stack	*current;
-	t_stack	*largest_num;
+	t_list	*current;
+	t_list	*largest_num;
 
 	current = stack;
 	while (size-- > 0)
@@ -49,9 +49,9 @@ t_stack	*rescaling(t_stack *stack, int size)
 	return (current);
 }
 
-int find_max_index(t_stack *stack)
+int find_max_index(t_list *stack)
 {
-    t_stack *current;
+    t_list *current;
     int     max_num;
 
     current = stack;
@@ -78,7 +78,7 @@ int find_max_bits(int max_index)
     return (max_bits);
 }
 
-void    radix_sort(t_stack **stackA, t_stack **stackB)
+void    radix_sort(t_list **stackA, t_list **stackB)
 {
     int max_index;
     int max_bits;

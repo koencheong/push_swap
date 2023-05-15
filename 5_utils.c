@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-int stack_len(t_stack *stack, int len)
+int stack_len(t_list *stack, int len)
 {
-	t_stack	*current;
+	t_list	*current;
 
 	current = stack;
     len = 0;
@@ -26,9 +26,9 @@ int stack_len(t_stack *stack, int len)
     return (len);
 }
 
-void	print_index_list(t_stack *stack, char c)
+void	print_index_list(t_list *stack, char c)
 {
-	t_stack *current;
+	t_list *current;
 
 	current = stack;
 	if (c == 'a')
@@ -48,9 +48,9 @@ void	print_index_list(t_stack *stack, char c)
 	}
 }
 
-void	printlist(t_stack *stack, char c)
+void	printlist(t_list *stack, char c)
 {
-	t_stack *current;
+	t_list *current;
 
 	current = stack;
 	if (c == 'a')
@@ -70,9 +70,9 @@ void	printlist(t_stack *stack, char c)
 	}
 }
 
-void free_list(t_stack *stack)
+void free_list(t_list *stack)
 {
-    t_stack *temp;
+    t_list *temp;
 
     while (stack != NULL)
 	{
@@ -84,6 +84,6 @@ void free_list(t_stack *stack)
 
 void	exit_function(char *message, int status)
 {
-	ft_printf("%s\n", message);
+	ft_printf("%s", message);
 	exit(status);
 }

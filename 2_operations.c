@@ -12,15 +12,12 @@
 
 #include "push_swap.h"
 
-void	push(t_stack **to, t_stack **from, char c)
+void	push(t_list **to, t_list **from, char c)
 {
 	if (*from == NULL)
-	{
-		ft_printf("\n[Nothing to be pushed.]\n");
 		return ;
-	}
 
-	t_stack	*newtopFrom;
+	t_list	*newtopFrom;
 
 	newtopFrom = (*from)->next;
 	(*from)->next = *to;
@@ -35,16 +32,14 @@ void	push(t_stack **to, t_stack **from, char c)
 }
 
 // sa, sb
-void	swap_first_two(t_stack **stack, char c)
+void	swap_first_two(t_list **stack, char c)
 {
-	t_stack *temp1;
-	t_stack *temp2;
+	t_list *temp1;
+	t_list *temp2;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		ft_printf("\n[Nothing to be swapped.]\n");
 		return ;
-	}
+
 	temp1 = *stack;
 	temp2 = (*stack)->next;
 
@@ -59,16 +54,13 @@ void	swap_first_two(t_stack **stack, char c)
 }
 
 // rra, rrb
-void	last_to_first(t_stack **stack, char c)
+void	last_to_first(t_list **stack, char c)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		// ft_printf("\n[Nothing to be reverse rotated.]\n");
 		return ;
-	}
 	
-	t_stack	*current;
-	t_stack	*last;
+	t_list	*current;
+	t_list	*last;
 
 	current = *stack;
 	while (current->next != NULL)
@@ -90,17 +82,14 @@ void	last_to_first(t_stack **stack, char c)
 }
 
 // ra, rb
-void	first_to_last(t_stack **stack, char c)
+void	first_to_last(t_list **stack, char c)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
-	{
-		// ft_printf("\n[Nothing to be rotated.]\n");
 		return ;
-	}
 
-	t_stack	*ori_first;
-	t_stack	*new_first;
-	t_stack	*last;
+	t_list	*ori_first;
+	t_list	*new_first;
+	t_list	*last;
 
 	ori_first = *stack;
 	new_first = (*stack)->next;

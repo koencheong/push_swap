@@ -12,13 +12,13 @@
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack **stack)
+int	is_sorted(t_list **stack)
 {
     if (stack == NULL)
 		return (1);
 	
-	t_stack *prev;
-    t_stack *curr;
+	t_list *prev;
+    t_list *curr;
     
 	prev = *stack;
 	curr = (*stack)->next;
@@ -32,10 +32,10 @@ int	is_sorted(t_stack **stack)
     return (1);
 }
 
-int has_duplicates(t_stack **stack)
+int has_duplicates(t_list **stack)
 {
-    t_stack *current;
-	t_stack *traverse;
+    t_list *current;
+	t_list *traverse;
 
 	current = *stack;
 	traverse = *stack;
