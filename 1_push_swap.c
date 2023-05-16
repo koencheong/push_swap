@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   1_push_swap.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/07 14:36:36 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/16 10:45:19 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	main(int argc, char **argv)
 		else
 		{
 			stackA = rescaling(stackA, len);
-			if (len == 2 || len == 3 || len == 5)
+			if (len  <= 5)
 				small_sort(&stackA, &stackB, len);
 			else
 				radix_sort(&stackA, &stackB);
@@ -133,4 +133,5 @@ int	main(int argc, char **argv)
 	// 	ft_printf("Not sorted :(\n");
 	free_list(stackA);
 	free_list(stackB);
+	free_2darray(input);
 }
