@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:42:12 by kcheong           #+#    #+#             */
-/*   Updated: 2022/07/26 20:43:14 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/16 23:04:59 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-size_t	ft_strlen(const char *s)
+size_t	ft_2strlength(const char *s)
 {
 	size_t	i;
 
@@ -43,7 +43,7 @@ char	*ft_strdup(const char *s1)
 	size_t	s1len;
 
 	i = 0;
-	s1len = ft_strlen(s1);
+	s1len = ft_2strlength(s1);
 	temp = malloc(sizeof(char) * (s1len + 1));
 	if (!temp)
 		return (NULL);
@@ -65,8 +65,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
+	s1len = ft_2strlength(s1);
+	s2len = ft_2strlength(s2);
 	new = malloc(s1len + s2len + 1);
 	if (!new)
 		return (NULL);

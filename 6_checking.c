@@ -32,6 +32,35 @@ int	is_sorted(t_list **stack)
     return (1);
 }
 
+void	check_valid(char **argv, int i)
+{
+	int	j;
+	
+	j = 0;
+	while (argv[i][j] != '\0')
+	{
+		if (*argv[1] == '\0')
+			exit_function("Error\n", 1);
+		if (argv[i][j] == '+' || argv[i][j] == '-')
+		{
+			if (j != 0)
+				exit_function("Error\n", 1);
+			if (argv[i][j + 1] == '0')
+				exit_function("Error\n", 1);
+		}
+		if (argv[i][0] == '0')
+		{
+			if (argv[i][1] != '\0' && argv[i][1] != '0')
+				exit_function("Error\n", 1);
+			if (argv[i][1] != '\0' && (ft_isdigit(argv[i][0])))
+				exit_function("Error\n", 1);
+		} 
+		if (!ft_isdigit(argv[i][j]))
+			exit_function("Error\n", 1);
+		j++;
+	}
+}
+
 int has_duplicates(t_list **stack)
 {
     t_list *current;
@@ -51,4 +80,19 @@ int has_duplicates(t_list **stack)
 		current = current->next;
 	}
     return (0);
+}
+
+void	add_to_list(t_list **stackA, char **argv, int i)
+{
+	t_list	*temp;
+	long	num;
+
+	temp = NULL;
+	num = 0;
+
+	num = ft_atoi(argv[i]);
+	if (num < INT_MIN || num > INT_MAX)
+		exit_function("Error\n", 1);
+	temp = ft_lstnew(num);
+	ft_lstadd_back(stackA, temp);
 }

@@ -19,23 +19,19 @@
 
 # define INT_MIN -2147483647 
 # define INT_MAX 2147483647
- 
-// typedef	struct s_list
-// {
-// 	int				num;
-// 	int				index;
-// 	struct	s_list	*next;
-// }	t_list;
 
 void	swap_first_two(t_list **stack, char c);
 void	first_to_last(t_list **stack, char c);
 void	last_to_first(t_list **stack, char c);
 void	push(t_list **to, t_list **from, char c);
 
-void	insertion_sort(t_list **stackA, t_list **stackB);
+// void	insertion_sort(t_list **stackA, t_list **stackB);
 
 int		is_sorted(t_list **stack);
 int 	has_duplicates(t_list **stack);
+void	check_valid(char **argv, int i);
+void	add_to_list(t_list **stackA, char **argv, int i);
+
 int 	stack_len(t_list *stack, int len);
 void	printlist(t_list *stack, char c);
 void	print_index_list(t_list *stack, char c);
@@ -46,6 +42,7 @@ t_list	*rescaling(t_list *stack, int i);
 void    radix_sort(t_list **stackA, t_list **stackB);
 
 void 	free_list(t_list *stack);
+void	free_2darray(char **array);
 void	exit_function(char *message, int status);
 
 void	small_sort(t_list **stackA, t_list **stackB, int size);

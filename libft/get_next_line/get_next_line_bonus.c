@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:38:43 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/04 13:44:20 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/16 23:02:51 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*store_extra(char *storage)
 		free(storage);
 		return (NULL);
 	}
-	extra = malloc((ft_strlen(storage) - i + 1) * sizeof(char));
+	extra = malloc((ft_2strlength(storage) - i + 1) * sizeof(char));
 	i++;
 	j = 0;
 	while (storage[i] != '\0')

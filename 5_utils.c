@@ -70,6 +70,19 @@ void	printlist(t_list *stack, char c)
 	}
 }
 
+void	free_2darray(char **array)
+{
+	char	**tmp;
+
+	tmp = array;
+	while (tmp && *tmp)
+	{
+		free(*tmp);
+		tmp++;
+	}
+	free(array);
+}
+
 void free_list(t_list *stack)
 {
     t_list *temp;
