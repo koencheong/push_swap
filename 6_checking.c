@@ -32,11 +32,8 @@ int	is_sorted(t_list **stack)
     return (1);
 }
 
-void	check_valid(char **argv, int i)
+void	check_valid(char **argv, int i, int j)
 {
-	int	j;
-	
-	j = 0;
 	while (argv[i][j] != '\0')
 	{
 		if (*argv[1] == '\0')

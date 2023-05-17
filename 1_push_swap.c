@@ -6,70 +6,65 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/17 00:05:16 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/18 00:24:24 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void helper(char **input, int i, int j, t_list **stackA)
+{
+	i = 0;
+	if (input[i] == NULL)
+	{
+		free_2darray(input);
+		exit_function("Error\n", 1);
+	}
+	while (input[i] != NULL)
+	{
+		check_valid(input, i, j);
+		add_to_list(stackA, input, i);
+		i++;
+	}
+}
+
+void	parse_input(int argc, char **argv, t_list **stackA)
 {
 	int		i;
-	t_list	*stackA;
-	t_list	*stackB;
-	int		len;
+	int		j;
 	char	**input;
-	
-	len = 0;
-	stackA = malloc(sizeof(t_list));
-	stackA = NULL;
-	stackB = malloc(sizeof(t_list));
-	stackB = NULL;
 
 	i = 1;
+	j = 0;
 	if (argc > 2)
 	{
 		while (i < argc)
 		{
-			check_valid(argv, i);
-			add_to_list(&stackA, argv, i);
+			check_valid(argv, i, j);
+			add_to_list(stackA, argv, i);
 			i++;
 		}
 	}
 	else if (argc == 2)
 	{
-		i = 0;
 		input = ft_split(argv[1], ' ');
-		if (input[0] == NULL)
-		{
-			free_2darray(input);
-			exit_function("", 1);
-		}
-		while (input[i] != NULL)
-		{
-			check_valid(input, i);
-			add_to_list(&stackA, input, i);
-			i++;
-		}
+		helper(input, i, j, stackA);
 	}
 	else
 		exit_function("", 1);
-	if (has_duplicates(&stackA))
-		exit_function("Error\n", 1);
-	else
-	{
-		len = stack_len(stackA, len);
-		if (is_sorted(&stackA))
-			exit_function("", 1);
-		else
-		{
-			stackA = rescaling(stackA, len);
-			if (len  <= 5)
-				small_sort(&stackA, &stackB, len);
-			else
-				radix_sort(&stackA, &stackB);
-		}
-	}
+}
+
+int	main(int argc, char **argv)
+{
+	t_list	*stackA;
+	t_list	*stackB;
+	
+	stackA = malloc(sizeof(t_list));
+	stackA = NULL;
+	stackB = malloc(sizeof(t_list));
+	stackB = NULL;
+	parse_input(argc, argv, &stackA);
+	push_swap(&stackA, &stackB);
 	// printlist(stackA, 'a');
 	// print_index_list(stackA, 'a');
 	// if (is_sorted(&stackA))

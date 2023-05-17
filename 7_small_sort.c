@@ -86,6 +86,46 @@ t_list	*sort_four_num(t_list **stackA, t_list **stackB)
 	return (*stackA);
 }
 
+t_list	*sort_five_num(t_list **stackA, t_list **stackB)
+{
+	t_list	*top;
+	t_list	*mid;
+	t_list	*btm;
+
+	top = *stackA;
+	mid = (*stackA)->next;
+	btm = (*stackA)->next->next;
+	while (top != NULL)
+	{
+		if (top->index != 0)
+		{
+			top = (*stackA)->next;
+			first_to_last(stackA, 'a');
+		}
+		else
+			break ;
+	}
+	push(stackB, stackA, 'b');
+	while (top != NULL)
+	{
+		if (top->index != 1)
+		{
+			top = (*stackA)->next;
+			first_to_last(stackA, 'a');
+		}
+		else
+			break ;
+	}
+	push(stackB, stackA, 'b');
+	top = *stackA;
+	mid = (*stackA)->next;
+	btm = (*stackA)->next->next;
+	sort_three_num(stackA, top, mid, btm);
+	push(stackA, stackB, 'a');
+	push(stackA, stackB, 'a');
+	return (*stackA);
+}
+
 void	small_sort(t_list **stackA, t_list **stackB, int size)
 {
 	t_list	*top;
@@ -102,34 +142,5 @@ void	small_sort(t_list **stackA, t_list **stackB, int size)
 	if (size == 4)
 		*stackA = sort_four_num(stackA,  stackB);
 	if (size == 5)
-	{
-		while (top != NULL)
-		{
-			if (top->index != 0)
-			{
-				top = (*stackA)->next;
-				first_to_last(stackA, 'a');
-			}
-			else
-				break ;
-		}
-		push(stackB, stackA, 'b');
-		while (top != NULL)
-		{
-			if (top->index != 1)
-			{
-				top = (*stackA)->next;
-				first_to_last(stackA, 'a');
-			}
-			else
-				break ;
-		}
-		push(stackB, stackA, 'b');
-		top = *stackA;
-		mid = (*stackA)->next;
-		btm = (*stackA)->next->next;
-		sort_three_num(stackA, top, mid, btm);
-		push(stackA, stackB, 'a');
-		push(stackA, stackB, 'a');
-	}
+		*stackA = sort_five_num(stackA,  stackB);
 }

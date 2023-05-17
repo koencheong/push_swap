@@ -1,7 +1,7 @@
 NAME1 = push_swap
 NAME2 = checker
-SRC = 1_push_swap.c 2_operations.c 3_insertion_sort.c 4_radix_sort.c 5_utils.c 6_checking.c 7_small_sort.c
-SRC2 = 2_operations.c 3_insertion_sort.c 4_radix_sort.c 5_utils.c 6_checking.c 7_small_sort.c checker.c
+SRC = 1_push_swap.c 2_operations.c 3_insertion_sort.c 4_radix_sort.c 5_utils.c 6_checking.c 7_small_sort.c 1b_push_swap.c
+SRC2 = 2_operations.c 3_insertion_sort.c 4_radix_sort.c 5_utils.c 6_checking.c 7_small_sort.c 8_checker.c
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 LIB = -L./libft -lft -L./libft/ft_printf -lftprintf -L./libft/get_next_line -lftgnl

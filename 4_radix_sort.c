@@ -78,16 +78,12 @@ int find_max_bits(int max_index)
     return (max_bits);
 }
 
-void    radix_sort(t_list **stackA, t_list **stackB)
+void    radix_sort(t_list **stackA, t_list **stackB, int max_index, int max_bits)
 {
-    int max_index;
-    int max_bits;
     int i;
     int j;
     int num;
 
-    max_index = find_max_index(*stackA);
-    max_bits = find_max_bits(max_index);
     i = 0;
     while (*stackA != NULL && i < max_bits)
     {
@@ -105,4 +101,14 @@ void    radix_sort(t_list **stackA, t_list **stackB)
                 push(stackA, stackB, 'a');
         i++;
     }
+}
+
+void    exec_radix_sort(t_list **stackA, t_list **stackB)
+{
+    int max_index;
+    int max_bits;
+
+    max_index = find_max_index(*stackA);
+    max_bits = find_max_bits(max_index);
+    radix_sort(stackA, stackB, max_index, max_bits);
 }
