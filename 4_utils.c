@@ -12,30 +12,15 @@
 
 #include "push_swap.h"
 
-int stack_len(t_list *stack, int len)
-{
-	t_list	*current;
-
-	current = stack;
-    len = 0;
-	while (current != NULL)
-	{
-		current = current->next;
-		len++;
-    }
-    return (len);
-}
-
 void	print_index_list(t_list *stack, char c)
 {
-	t_list *current;
+	t_list	*current;
 
 	current = stack;
 	if (c == 'a')
 		ft_printf("Stack A:\n");
 	else if (c == 'b')
 		ft_printf("\nStack B:\n");
-	
 	if (stack == NULL)
 	{
 		ft_printf("Linked list is empty.\n");
@@ -50,14 +35,13 @@ void	print_index_list(t_list *stack, char c)
 
 void	printlist(t_list *stack, char c)
 {
-	t_list *current;
+	t_list	*current;
 
 	current = stack;
 	if (c == 'a')
 		ft_printf("Stack A:\n");
 	else if (c == 'b')
 		ft_printf("\nStack B:\n");
-	
 	if (stack == NULL)
 	{
 		ft_printf("Linked list is empty.\n");
@@ -83,20 +67,20 @@ void	free_2darray(char **array)
 	free(array);
 }
 
-void free_list(t_list *stack)
+void	free_list(t_list *stack)
 {
-    t_list *temp;
+	t_list	*temp;
 
-    while (stack != NULL)
+	while (stack != NULL)
 	{
-        temp = stack;
-        stack = stack->next;
-        free(temp);
-    }
+		temp = stack;
+		stack = stack->next;
+		free(temp);
+	}
 }
 
-void	exit_function(char *message, int status)
+void	exit_function(char *str, int status)
 {
-	ft_printf("%s", message);
+	ft_putstr_fd(str, 1);
 	exit(status);
 }
