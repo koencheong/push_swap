@@ -104,7 +104,7 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 		helper(input, i, j, stack_a);
 	}
 	else
-		exit_function("Error\n", 1);
+		exit_function("", 1);
 }
 
 int	main(int argc, char **argv)
@@ -120,7 +120,7 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	parse_input(argc, argv, &stack_a);
 	if (has_duplicates(&stack_a))
-		exit_function("Error\n", 1);
+		exit_function("", 1);
 	len = stack_len(stack_a, len);
 	stack_a = rescaling(stack_a, len);
 	run_cmd(&stack_a, &stack_b);
