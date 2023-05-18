@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/18 17:38:29 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/18 19:13:13 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	helper(char **input, int i, int j, t_list **stack_a)
 {
 	i = 0;
-	if (input[i] == NULL)
+	if (input[1] == NULL)
 	{
 		free_2darray(input);
-		exit_function("Error\n", 1);
+		exit_function("", 1);
 	}
 	while (input[i] != NULL)
 	{
@@ -51,7 +51,7 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 		helper(input, i, j, stack_a);
 	}
 	else
-		exit_function("", 1);
+		exit(0);
 }
 
 int	main(int argc, char **argv)
@@ -65,8 +65,9 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	parse_input(argc, argv, &stack_a);
 	push_swap(&stack_a, &stack_b);
-	free_list(stack_a);
-	free_list(stack_b);
+	// printlist(stack_a, 'a');
+	// print_index_list(stack_a, 'a');
+	exit_function("", 0);
 }
 
 	// printlist(stack_a, 'a');

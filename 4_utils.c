@@ -81,6 +81,7 @@ void	free_list(t_list *stack)
 
 void	exit_function(char *str, int status)
 {
-	ft_putstr_fd(str, 1);
+	ft_putstr_fd(str, 2);
+	// system("leaks push_swap");
 	exit(status);
 }

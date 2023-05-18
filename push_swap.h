@@ -17,7 +17,7 @@
 # include "./libft/ft_printf/ft_printf.h"
 # include "./libft/get_next_line/get_next_line_bonus.h"
 
-# define INT_MIN -2147483647 
+# define INT_MIN -2147483648
 # define INT_MAX 2147483647
 
 // main

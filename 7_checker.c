@@ -68,10 +68,10 @@ void	run_cmd(t_list **stack_a, t_list **stack_b)
 void	helper(char **input, int i, int j, t_list **stack_a)
 {
 	i = 0;
-	if (input[i] == NULL)
+	if (input[1] == NULL)
 	{
 		free_2darray(input);
-		exit_function("Error\n", 1);
+		exit_function("", 1);
 	}
 	while (input[i] != NULL)
 	{
@@ -89,6 +89,7 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 
 	i = 1;
 	j = 0;
+	input = NULL;
 	if (argc > 2)
 	{
 		while (i < argc)

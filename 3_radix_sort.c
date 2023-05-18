@@ -15,15 +15,15 @@
 t_list	*find_max_unindexed(t_list *stack)
 {
 	t_list	*max_node;
-	int		max_num;
+	long	max_num;
 
 	max_node = NULL;
 	max_num = INT_MIN;
 	while (stack != NULL)
 	{
-		if (stack->num == max_num && (stack->index == 0))
-			return (NULL);
-		if (stack->index == 0 && stack->num > max_num)
+		// if (stack->num == max_num && (stack->index == 0))
+		// 	return (NULL);
+		if (stack->index == 0 && stack->num >= max_num)
 		{
 			max_num = stack->num;
 			max_node = stack;

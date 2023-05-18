@@ -3,7 +3,7 @@ NAME2 = checker
 SRC = 1_push_swap.c 1b_push_swap.c 2_operations.c 3_radix_sort.c 4_utils.c 5_checking.c 6_small_sort.c 
 SRC2 = 1b_push_swap.c 2_operations.c 3_radix_sort.c 4_utils.c 5_checking.c 6_small_sort.c 7_checker.c
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 LIB = -L./libft -lft -L./libft/ft_printf -lftprintf -L./libft/get_next_line -lftgnl
 AR = ar rcs
 # LIB = ./libft/libft.a ./libft/ft_printf/libftprintf.a ./libft/get_next_line/libftgnl.a
