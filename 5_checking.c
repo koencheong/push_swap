@@ -31,34 +31,6 @@ int	is_sorted(t_list **stack)
 	return (1);
 }
 
-void	check_valid(char **argv, int i, int j)
-{
-	while (argv[i][j] != '\0')
-	{
-		if (*argv[1] == '\0')
-			exit_function("Error\n", 1);
-		if (argv[i][j] == '+' || argv[i][j] == '-')
-		{
-			if (j != 0)
-				exit_function("Error\n", 1);
-			if (argv[i][j + 1] == '0')
-				exit_function("Error\n", 1);
-			else if (argv[i][j + 1] == '\0')
-				exit_function("Error\n", 1);
-		}
-		if (argv[i][0] == '0')
-		{
-			if (argv[i][1] != '\0' && argv[i][1] != '0')
-				exit_function("Error\n", 1);
-			if (argv[i][1] != '\0' && (ft_isdigit(argv[i][0])))
-				exit_function("Error\n", 1);
-		}
-		if (!ft_isdigit(argv[i][j]))
-			exit_function("Error\n", 1);
-		j++;
-	}
-}
-
 int	has_duplicates(t_list **stack)
 {
 	t_list	*current;

@@ -23,7 +23,7 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 	{
 		len = stack_len(*stack_a, len);
 		if (is_sorted(stack_a))
-			exit_function("", 1);
+			exit(0);
 		else
 		{
 			*stack_a = rescaling(*stack_a, len);

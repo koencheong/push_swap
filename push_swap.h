@@ -32,7 +32,7 @@ void	push(t_list **to, t_list **from, char c);
 // checking
 int		is_sorted(t_list **stack);
 int		has_duplicates(t_list **stack);
-void	check_valid(char **argv, int i, int j);
+// void	check_valid(char **argv, int i, int j);
 void	add_to_list(t_list **stack_a, char **argv, int i);
 
 // utils

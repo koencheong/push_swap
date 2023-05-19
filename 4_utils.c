@@ -79,7 +79,7 @@ void	free_list(t_list *stack)
 	}
 }
 
-#include<stdio.h>
+// #include<stdio.h>
 
 void	exit_function(char *str, int status)
 {

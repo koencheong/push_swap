@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/18 19:13:13 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/19 12:32:26 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,24 @@
 void	helper(char **input, int i, int j, t_list **stack_a)
 {
 	i = 0;
-	if (input[1] == NULL)
-	{
-		free_2darray(input);
-		exit_function("", 1);
-	}
+	// if (input[1] == NULL)
+	// {
+	// 	free_2darray(input);
+	// 	exit(0);
+	// }
 	while (input[i] != NULL)
 	{
-		check_valid(input, i, j);
+		while (input[i][j] != '\0')
+		{
+			if (input[i][j] == '+' || input[i][j] == '-')
+			{
+				if (!ft_isdigit(input[i][j + 1]))
+					exit_function("Error\n", 1);
+			}
+			else if (!ft_isdigit(input[i][j]))
+				exit_function("Error\n", 1);
+			j++;
+		}
 		add_to_list(stack_a, input, i);
 		i++;
 	}
@@ -40,7 +50,7 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 	{
 		while (i < argc)
 		{
-			check_valid(argv, i, j);
+			helper(argv, i, j, stack_a);
 			add_to_list(stack_a, argv, i);
 			i++;
 		}
@@ -59,6 +69,8 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 
+	if (argc == 1)
+		exit(0);
 	stack_a = malloc(sizeof(t_list));
 	stack_a = NULL;
 	stack_b = malloc(sizeof(t_list));
@@ -67,7 +79,7 @@ int	main(int argc, char **argv)
 	push_swap(&stack_a, &stack_b);
 	// printlist(stack_a, 'a');
 	// print_index_list(stack_a, 'a');
-	exit_function("", 0);
+	// exit(0);
 }
 
 	// printlist(stack_a, 'a');

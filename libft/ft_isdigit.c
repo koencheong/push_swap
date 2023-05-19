@@ -6,15 +6,15 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 11:55:27 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/15 20:44:29 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/19 11:59:23 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <stdio.h>
+#include <stdio.h>
 
 int	ft_isdigit(int c)
 {
-	if ((c >= '0' && c <= '9') || c == '+' || c == '-')
+	if ((c >= '0' && c <= '9'))
 		return (1);
 	return (0);
 }
