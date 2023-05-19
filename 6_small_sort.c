@@ -92,47 +92,88 @@ t_list	*sort_four_num(t_list **stack_a, t_list **stack_b)
 	return (*stack_a);
 }
 
-void	sort_five_num2(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*top;
-	t_list	*mid;
-	t_list	*btm;
+// void	sort_five_num2(t_list **stack_a, t_list **stack_b)
+// {
+// 	t_list	*top;
+// 	t_list	*mid;
+// 	t_list	*btm;
 
-	top = *stack_a;
-	mid = NULL;
-	btm = NULL;
-	while (top != NULL)
-	{
-		if (top->index != 1)
-		{
-			top = (*stack_a)->next;
-			first_to_last(stack_a, 'a');
-		}
-		else
-			break ;
-	}
-	push(stack_b, stack_a, 'b');
-	sort_three_num(stack_a, top, mid, btm);
-	push(stack_a, stack_b, 'a');
-	push(stack_a, stack_b, 'a');
-}
+// 	top = *stack_a;
+// 	mid = NULL;
+// 	btm = NULL;
+// 	while (top != NULL)
+// 	{
+// 		if (top->index != 1)
+// 		{
+// 			top = (*stack_a)->next;
+// 			first_to_last(stack_a, 'a');
+// 		}
+// 		else
+// 			break ;
+// 	}
+// 	push(stack_b, stack_a, 'b');
+// 	sort_three_num(stack_a, top, mid, btm);
+// 	push(stack_a, stack_b, 'a');
+// 	push(stack_a, stack_b, 'a');
+// }
 
 t_list	*sort_five_num(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*top;
+	t_list	*mid;
+	t_list	*btm;
+	int		len;
 
 	top = *stack_a;
-	while (top != NULL)
+	mid = NULL;
+	btm = NULL;
+	len = 0;
+	len = stack_len(*stack_a, len);
+	while (len != 3)
 	{
-		if (top->index != 0)
+		if (top->index < 2)
+		{
+			push(stack_b, stack_a, 'b');
+			ft_printf("%d\n", len);
+		}
+		else
 		{
 			top = (*stack_a)->next;
 			first_to_last(stack_a, 'a');
 		}
-		else
-			break ;
 	}
-	push(stack_b, stack_a, 'b');
-	sort_five_num2(stack_a, stack_b);
+	// while (top != NULL)
+	// {
+	// 	if (top->index != 0)
+	// 	{
+	// 		top = (*stack_a)->next;
+	// 		first_to_last(stack_a, 'a');
+	// 	}
+	// 	else
+	// 		break ;
+	// }
+	// push(stack_b, stack_a, 'b');
+	// sort_five_num2(stack_a, stack_b);
+	sort_three_num(stack_a, top, mid, btm);
+	if ((*stack_b)->index < (*stack_b)->next->index)
+		swap_first_two(stack_b, 'b');
+	push(stack_a, stack_b, 'a');
+	push(stack_a, stack_b, 'a');
 	return (*stack_a);
 }
+
+	// if (((*stack_a)->index == 4) && ((*stack_a)->next->index == 3)
+	// 	&& ((*stack_a)->next->next->index == 2)
+	// 	&& (((*stack_a)->next->next->next->index == 1)))
+	// {
+	// 	last_to_first(stack_a, 'a');
+	// 	last_to_first(stack_a, 'a');
+	// 	push(stack_b, stack_a, 'b');
+	// 	push(stack_b, stack_a, 'b');
+	// 	swap_first_two(stack_b, 'b');
+	// 	sort_three_num(stack_a, top, mid, btm);
+	// 	push(stack_a, stack_b, 'a');
+	// 	push(stack_a, stack_b, 'a');
+	// 	if (is_sorted(stack_a))
+	// 		return (0);
+	// }
