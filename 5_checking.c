@@ -61,7 +61,7 @@ void	add_to_list(t_list **stack_a, char **argv, int i)
 	num = 0;
 	num = ft_atoi(argv[i]);
 	if (num < INT_MIN || num > INT_MAX)
-		exit_function("Error\n", 1);
+		exit_function("Error\n", 0);
 	temp = ft_lstnew(num);
 	ft_lstadd_back(stack_a, temp);
 }

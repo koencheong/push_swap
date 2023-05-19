@@ -35,7 +35,7 @@ void	run_cmd2(t_list **stack_a, t_list **stack_b, const char *str)
 	else if ((!ft_strncmp(str, "pb\n", 3)))
 		push(stack_b, stack_a, '0');
 	else
-		exit_function("Error\n", 1);
+		exit_function("Error\n", 0);
 }
 
 void	run_cmd(t_list **stack_a, t_list **stack_b)
@@ -73,10 +73,10 @@ void	helper(char **input, int i, int j, t_list **stack_a)
 		if (input[i][j] == '+' || input[i][j] == '-')
 		{
 			if (!ft_isdigit(input[i][j + 1]))
-				exit_function("Error\n", 1);
+				exit_function("Error\n", 0);
 		}
 		else if (!ft_isdigit(input[i][j]))
-			exit_function("Error\n", 1);
+			exit_function("Error\n", 0);
 		j++;
 	}
 	add_to_list(stack_a, input, i);

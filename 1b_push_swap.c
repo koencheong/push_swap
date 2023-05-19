@@ -18,7 +18,7 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 
 	len = 0;
 	if (has_duplicates(stack_a))
-		exit_function("Error\n", 1);
+		exit_function("Error\n", 0);
 	else
 	{
 		len = stack_len(*stack_a, len);
