@@ -67,7 +67,8 @@ void	run_cmd(t_list **stack_a, t_list **stack_b)
 
 void	helper(char **input, int i, int j, t_list **stack_a)
 {
-	(void) stack_a;
+	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
+			exit_function("Error\n", 0);
 	while (input[i][j] != '\0')
 	{
 		if (input[i][j] == '+' || input[i][j] == '-')

@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/19 21:05:52 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/19 23:18:51 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	helper(char **input, int i, int j, t_list **stack_a)
 {
-	(void) stack_a;
+	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
+			exit_function("Error\n", 0);
 	while (input[i][j] != '\0')
 	{
 		if (input[i][j] == '+' || input[i][j] == '-')
@@ -61,7 +62,7 @@ int	main(int argc, char **argv)
 	t_list	*stack_b;
 
 	if (argc == 1)
-		return (0);
+		exit (0);
 	stack_a = malloc(sizeof(t_list));
 	stack_a = NULL;
 	stack_b = malloc(sizeof(t_list));
@@ -72,7 +73,7 @@ int	main(int argc, char **argv)
 	// free_list(stack_b);
 	// printlist(stack_a, 'a');
 	// print_index_list(stack_a, 'a');
-	exit(0);
+	// exit(0);
 }
 
 	// printlist(stack_a, 'a');
