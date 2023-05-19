@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/19 15:56:47 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/19 16:37:39 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 
 	i = 0;
 	j = 0;
+	input = NULL;
 	if (argc > 2)
 	{
 		while (++i < argc)
@@ -51,6 +52,7 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 	}
 	else
 		exit(0);
+	free_2darray(input);
 }
 
 int	main(int argc, char **argv)
@@ -66,6 +68,8 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	parse_input(argc, argv, &stack_a);
 	push_swap(&stack_a, &stack_b);
+	// free_list(stack_a);
+	// free_list(stack_b);
 	// printlist(stack_a, 'a');
 	// print_index_list(stack_a, 'a');
 	// exit(0);

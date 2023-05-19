@@ -67,23 +67,19 @@ void	run_cmd(t_list **stack_a, t_list **stack_b)
 
 void	helper(char **input, int i, int j, t_list **stack_a)
 {
-	i = 0;
-	while (input[i] != NULL)
+	(void) stack_a;
+	while (input[i][j] != '\0')
 	{
-		while (input[i][j] != '\0')
+		if (input[i][j] == '+' || input[i][j] == '-')
 		{
-			if (input[i][j] == '+' || input[i][j] == '-')
-			{
-				if (!ft_isdigit(input[i][j + 1]))
-					exit_function("Error\n", 1);
-			}
-			else if (!ft_isdigit(input[i][j]))
+			if (!ft_isdigit(input[i][j + 1]))
 				exit_function("Error\n", 1);
-			j++;
 		}
-		add_to_list(stack_a, input, i);
-		i++;
+		else if (!ft_isdigit(input[i][j]))
+			exit_function("Error\n", 1);
+		j++;
 	}
+	add_to_list(stack_a, input, i);
 }
 
 void	parse_input(int argc, char **argv, t_list **stack_a)
@@ -92,24 +88,24 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 	int		j;
 	char	**input;
 
-	i = 1;
+	i = 0;
 	j = 0;
+	input = NULL;
 	if (argc > 2)
 	{
-		while (i < argc)
-		{
+		while (++i < argc)
 			helper(argv, i, j, stack_a);
-			add_to_list(stack_a, argv, i);
-			i++;
-		}
 	}
 	else if (argc == 2)
 	{
+		i = -1;
 		input = ft_split(argv[1], ' ');
-		helper(input, i, j, stack_a);
+		while (input[++i] != NULL)
+			helper(input, i, j, stack_a);
 	}
 	else
 		exit(0);
+	free_2darray(input);
 }
 
 int	main(int argc, char **argv)
