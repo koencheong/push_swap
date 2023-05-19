@@ -120,12 +120,8 @@ void	sort_five_num2(t_list **stack_a, t_list **stack_b)
 t_list	*sort_five_num(t_list **stack_a, t_list **stack_b)
 {
 	t_list	*top;
-	// t_list	*mid;
-	// t_list	*btm;
 
 	top = *stack_a;
-	// mid = (*stack_a)->next;
-	// btm = (*stack_a)->next->next;
 	while (top != NULL)
 	{
 		if (top->index != 0)
