@@ -65,3 +65,17 @@ void	add_to_list(t_list **stack_a, char **argv, int i)
 	temp = ft_lstnew(num);
 	ft_lstadd_back(stack_a, temp);
 }
+
+int	stack_len(t_list *stack, int len)
+{
+	t_list	*current;
+
+	current = stack;
+	len = 0;
+	while (current != NULL)
+	{
+		current = current->next;
+		len++;
+	}
+	return (len);
+}

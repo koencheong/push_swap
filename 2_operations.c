@@ -93,17 +93,3 @@ void	first_to_last(t_list **stack, char c)
 	else if (c == 'b')
 		ft_printf("rb\n");
 }
-
-int	stack_len(t_list *stack, int len)
-{
-	t_list	*current;
-
-	current = stack;
-	len = 0;
-	while (current != NULL)
-	{
-		current = current->next;
-		len++;
-	}
-	return (len);
-}

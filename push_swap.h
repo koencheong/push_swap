@@ -61,3 +61,34 @@ t_list	*sort_five_num(t_list **stack_a, t_list **stack_b);
 void	sort_five_num2(t_list **stack_a, t_list **stack_b);
 
 #endif
+
+// while (top != NULL)
+// 	{
+// 		if (top->index != 0 && top->index != 1)
+// 		{
+// 			swap_first_two(stack_a, 'a');
+// 			top = *stack_a;
+// 		}
+// 		if (top->index != 0 && top->index != 1)
+// 		{
+// 			first_to_last(stack_a, 'a');
+// 			top = *stack_a;
+// 			first_to_last(stack_a, 'a');
+// 			top = *stack_a;
+// 		}
+// 		if (top->index == 0 || top->index == 1)
+// 		{
+// 			if (top->index == 0)
+// 			{
+// 				push(stack_b, stack_a, 'b');
+// 				top = *stack_a;
+// 				push(stack_b, stack_a, 'b');
+// 			}
+// 			else if (top->index == 1)
+// 			{
+// 				swap_first_two(stack_a, 'a');
+// 				push(stack_b, stack_a, 'b');
+// 				top = *stack_a;
+// 				push(stack_b, stack_a, 'b');
+// 			}
+// 		}

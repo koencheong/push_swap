@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/19 12:32:26 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/19 15:56:47 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,19 @@
 
 void	helper(char **input, int i, int j, t_list **stack_a)
 {
-	i = 0;
-	// if (input[1] == NULL)
-	// {
-	// 	free_2darray(input);
-	// 	exit(0);
-	// }
-	while (input[i] != NULL)
+	(void) stack_a;
+	while (input[i][j] != '\0')
 	{
-		while (input[i][j] != '\0')
+		if (input[i][j] == '+' || input[i][j] == '-')
 		{
-			if (input[i][j] == '+' || input[i][j] == '-')
-			{
-				if (!ft_isdigit(input[i][j + 1]))
-					exit_function("Error\n", 1);
-			}
-			else if (!ft_isdigit(input[i][j]))
+			if (!ft_isdigit(input[i][j + 1]))
 				exit_function("Error\n", 1);
-			j++;
 		}
-		add_to_list(stack_a, input, i);
-		i++;
+		else if (!ft_isdigit(input[i][j]))
+			exit_function("Error\n", 1);
+		j++;
 	}
+	add_to_list(stack_a, input, i);
 }
 
 void	parse_input(int argc, char **argv, t_list **stack_a)
@@ -44,21 +35,19 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 	int		j;
 	char	**input;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	if (argc > 2)
 	{
-		while (i < argc)
-		{
+		while (++i < argc)
 			helper(argv, i, j, stack_a);
-			add_to_list(stack_a, argv, i);
-			i++;
-		}
 	}
 	else if (argc == 2)
 	{
+		i = -1;
 		input = ft_split(argv[1], ' ');
-		helper(input, i, j, stack_a);
+		while (input[++i] != NULL)
+			helper(input, i, j, stack_a);
 	}
 	else
 		exit(0);
