@@ -12,24 +12,46 @@
 
 #include "push_swap.h"
 
-void	helper(char **input, int i, int j, t_list **stack_a)
+// void	helper(char **input, int i, int j, t_list **stack_a)
+// {
+// 	if (input[i][j] == '\0')
+// 		error_exit();
+// 	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
+// 		error_exit();
+// 	while (input[i][j] != '\0')
+// 	{
+// 		if (input[i][j] == '+' || input[i][j] == '-')
+// 		{
+// 			if (!ft_isdigit(input[i][j + 1]))
+// 				error_exit();
+// 		}
+// 		else if (!ft_isdigit(input[i][j]))
+// 			error_exit();
+// 		j++;
+// 	}
+// 	add_to_list(stack_a, input, i);
+// }
+
+void    helper(char **input, int i, int j, t_list **stack_a)
 {
-	if (input[i][j] == '\0')
-		error_exit();
-	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
-		error_exit();
-	while (input[i][j] != '\0')
-	{
-		if (input[i][j] == '+' || input[i][j] == '-')
-		{
-			if (!ft_isdigit(input[i][j + 1]))
-				error_exit();
-		}
-		else if (!ft_isdigit(input[i][j]))
-			error_exit();
-		j++;
-	}
-	add_to_list(stack_a, input, i);
+    if (input[i][j] == '\0')
+        error_exit();
+    if (input[i][j] == '+' || input[i][j] == '-')
+    {
+        j++;
+        if (!ft_isdigit(input[i][j]))
+            error_exit();
+    }
+    while (input[i][j] != '\0')
+    {
+        if ((input[i][j] >= 32 && input[i][j] <= 47)
+            || (input[i][j] >= 58 && input[i][j] < 127))
+            error_exit();
+        if (!ft_isdigit(input[i][j]) && input[i][j] == '\n')
+            error_exit();
+        j++;
+    }
+    add_to_list(stack_a, input, i);
 }
 
 void	parse_input(int argc, char **argv, t_list **stack_a)
@@ -49,7 +71,6 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 	else if (argc == 2)
 	{
 		i = -1;
-		// argv[1] = ft_strtrim(argv[1], "\n");
 		input = ft_split(argv[1], ' ');
 		if (*input == NULL)
 			exit(0);
