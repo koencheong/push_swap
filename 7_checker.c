@@ -35,7 +35,7 @@ void	run_cmd2(t_list **stack_a, t_list **stack_b, const char *str)
 	else if ((!ft_strncmp(str, "pb\n", 3)))
 		push(stack_b, stack_a, '0');
 	else
-		exit_function("Error\n", 0);
+		error_exit();
 }
 
 void	run_cmd(t_list **stack_a, t_list **stack_b)
@@ -45,6 +45,8 @@ void	run_cmd(t_list **stack_a, t_list **stack_b)
 
 	fd = 0;
 	str = get_next_line(fd);
+	if (str == NULL)
+		error_exit();
 	while (str)
 	{
 		if ((!ft_strncmp(str, "sa\n", 3)))
@@ -65,60 +67,14 @@ void	run_cmd(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	helper(char **input, int i, int j, t_list **stack_a)
-{
-	if (input[i][j] == '\0')
-		exit_function("Error\n", 0);
-	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
-		exit_function("Error\n", 0);
-	while (input[i][j] != '\0')
-	{
-		if (input[i][j] == '+' || input[i][j] == '-')
-		{
-			if (!ft_isdigit(input[i][j + 1]))
-				exit_function("Error\n", 0);
-		}
-		else if (!ft_isdigit(input[i][j]))
-			exit_function("Error\n", 0);
-		j++;
-	}
-	add_to_list(stack_a, input, i);
-}
-
-void	parse_input(int argc, char **argv, t_list **stack_a)
-{
-	int		i;
-	int		j;
-	char	**input;
-
-	i = 0;
-	j = 0;
-	input = NULL;
-	if (argc > 2)
-	{
-		while (++i < argc)
-			helper(argv, i, j, stack_a);
-	}
-	else if (argc == 2)
-	{
-		i = -1;
-		input = ft_split(argv[1], ' ');
-		if (*input == NULL)
-			exit(0);
-		while (input[++i] != NULL)
-			helper(input, i, j, stack_a);
-	}
-	else
-		exit(0);
-	free_2darray(input); 
-}
-
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
 	int		len;
 
+	if (argc == 1)
+		exit(0);
 	len = 0;
 	stack_a = malloc(sizeof(t_list));
 	stack_a = NULL;

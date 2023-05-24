@@ -32,6 +32,8 @@ void	push(t_list **to, t_list **from, char c);
 // checking
 int		is_sorted(t_list **stack);
 int		has_duplicates(t_list **stack);
+void	parse_input(int argc, char **argv, t_list **stack_a);
+void	helper(char **input, int i, int j, t_list **stack_a);
 // void	check_valid(char **argv, int i, int j);
 void	add_to_list(t_list **stack_a, char **argv, int i);
 
@@ -41,7 +43,7 @@ void	printlist(t_list *stack, char c);
 void	print_index_list(t_list *stack, char c);
 void	free_list(t_list *stack);
 void	free_2darray(char **array);
-void	exit_function(char *str, int status);
+void	error_exit(void);
 
 // radix sort
 int		find_max_bits(int max_num);

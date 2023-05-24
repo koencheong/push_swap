@@ -6,59 +6,11 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/23 23:04:13 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:33:24 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	helper(char **input, int i, int j, t_list **stack_a)
-{
-	if (input[i][j] == '\0')
-		exit_function("Error\n", 0);
-	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
-		exit_function("Error\n", 0);
-	while (input[i][j] != '\0')
-	{
-		if (input[i][j] == '+' || input[i][j] == '-')
-		{
-			if (!ft_isdigit(input[i][j + 1]))
-				exit_function("Error\n", 0);
-		}
-		else if (!ft_isdigit(input[i][j]))
-			exit_function("Error\n", 0);
-		j++;
-	}
-	add_to_list(stack_a, input, i);
-}
-
-void	parse_input(int argc, char **argv, t_list **stack_a)
-{
-	int		i;
-	int		j;
-	char	**input;
-
-	i = 0;
-	j = 0;
-	input = NULL;
-	if (argc > 2)
-	{
-		while (++i < argc)
-			helper(argv, i, j, stack_a);
-	}
-	else if (argc == 2)
-	{
-		i = -1;
-		input = ft_split(argv[1], ' ');
-		if (*input == NULL)
-			exit(0);
-		while (input[++i] != NULL)
-			helper(input, i, j, stack_a);
-	}
-	else
-		exit(0);
-	free_2darray(input); 
-}
 
 int	main(int argc, char **argv)
 {

@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:42:42 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/16 23:00:44 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:31:09 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define  BUFFER_SIZE 1024
 
 char	*get_next_line(int fd);
-char	*ft_strchr(const char *s, int c);
+char	*ft_gnl_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_2strlength(const char *s);
 void	*ft_calloc(size_t count, size_t size);

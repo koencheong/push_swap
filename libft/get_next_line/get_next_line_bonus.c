@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:38:43 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/16 23:02:51 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/24 12:31:07 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	*read_join(int fd, char *storage, char *buffer)
 			storage = ft_strdup(buffer);
 		else
 			storage = join_free(storage, buffer);
-		if (ft_strchr(storage, '\n'))
+		if (ft_gnl_strchr(storage, '\n'))
 			break ;
 	}
 	free(buffer);

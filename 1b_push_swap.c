@@ -12,13 +12,60 @@
 
 #include "push_swap.h"
 
+void	helper(char **input, int i, int j, t_list **stack_a)
+{
+	if (input[i][j] == '\0')
+		error_exit();
+	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
+		error_exit();
+	while (input[i][j] != '\0')
+	{
+		if (input[i][j] == '+' || input[i][j] == '-')
+		{
+			if (!ft_isdigit(input[i][j + 1]))
+				error_exit();
+		}
+		else if (!ft_isdigit(input[i][j]))
+			error_exit();
+		j++;
+	}
+	add_to_list(stack_a, input, i);
+}
+
+void	parse_input(int argc, char **argv, t_list **stack_a)
+{
+	int		i;
+	int		j;
+	char	**input;
+
+	i = 0;
+	j = 0;
+	input = NULL;
+	if (argc > 2)
+	{
+		while (++i < argc)
+			helper(argv, i, j, stack_a);
+	}
+	else if (argc == 2)
+	{
+		i = -1;
+		// argv[1] = ft_strtrim(argv[1], "\n");
+		input = ft_split(argv[1], ' ');
+		if (*input == NULL)
+			exit(0);
+		while (input[++i] != NULL)
+			helper(input, i, j, stack_a);
+	}
+	free_2darray(input); 
+}
+
 void	push_swap(t_list **stack_a, t_list **stack_b)
 {
 	int	len;
 
 	len = 0;
 	if (has_duplicates(stack_a))
-		exit_function("Error\n", 0);
+		error_exit();
 	else
 	{
 		len = stack_len(*stack_a, len);
@@ -46,11 +93,11 @@ void	small_sort(t_list **stack_a, t_list **stack_b, int size)
 	btm = (*stack_a)->next->next;
 	if (size == 2)
 		swap_first_two(stack_a, 'a');
-	if (size == 3)
+	else if (size == 3)
 		*stack_a = sort_three_num(stack_a, top, mid, btm);
-	if (size == 4)
+	else if (size == 4)
 		*stack_a = sort_four_num(stack_a, stack_b);
-	if (size == 5)
+	else if (size == 5)
 		*stack_a = sort_five_num(stack_a, stack_b);
 }
 
