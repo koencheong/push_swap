@@ -60,6 +60,5 @@ void	sort_three_num2(t_list **stack_a, t_list *top,
 t_list	*sort_four_num(t_list **stack_a, t_list **stack_b);
 void	sort_four_num2(t_list **stack_a, t_list **stack_b);
 t_list	*sort_five_num(t_list **stack_a, t_list **stack_b, int len);
-void	sort_five_num2(t_list **stack_a, t_list **stack_b);
 
 #endif

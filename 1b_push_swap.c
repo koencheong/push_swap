@@ -16,6 +16,8 @@ void	helper(char **input, int i, int j, t_list **stack_a)
 {
 	if (input[i][j] == '\0')
 		error_exit();
+	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
+		error_exit();
 	if (input[i][j] == '+' || input[i][j] == '-')
 	{
 		j++;
