@@ -6,7 +6,7 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 14:36:36 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/25 17:31:47 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/25 18:46:48 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	main(int argc, char **argv)
 	push_swap(&stack_a, &stack_b);
 }
 
-	// system("leaks push_swap");
 	// system("leaks push_swap");
 	// printlist(stack_a, 'a');
 	// print_index_list(stack_a, 'a');
