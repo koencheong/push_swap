@@ -59,7 +59,7 @@ void	free_2darray(char **array)
 	char	**tmp;
 
 	tmp = array;
-	while (tmp && *tmp)
+	while (tmp != NULL && *tmp != NULL)
 	{
 		free(*tmp);
 		tmp++;
@@ -81,7 +81,6 @@ void	free_list(t_list *stack)
 
 void	error_exit(void)
 {
-	// system("leaks push_swap");
 	write (2, "Error\n", 6);
 	exit(0);
 }

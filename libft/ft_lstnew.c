@@ -6,13 +6,13 @@
 /*   By: kcheong <kcheong@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:20:57 by kcheong           #+#    #+#             */
-/*   Updated: 2023/05/14 22:44:15 by kcheong          ###   ########.fr       */
+/*   Updated: 2023/05/25 16:33:20 by kcheong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(int content, int index)
 {
 	t_list	*list;
 
@@ -20,6 +20,7 @@ t_list	*ft_lstnew(int content)
 	if (!list)
 		return (NULL);
 	list->num = content;
+	list->index = index;
 	list->next = NULL;
 	return (list);
 }

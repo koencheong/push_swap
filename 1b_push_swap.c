@@ -12,46 +12,26 @@
 
 #include "push_swap.h"
 
-// void	helper(char **input, int i, int j, t_list **stack_a)
-// {
-// 	if (input[i][j] == '\0')
-// 		error_exit();
-// 	if ((input[i][j] == '0') && (input[i][j + 1] != '\0'))
-// 		error_exit();
-// 	while (input[i][j] != '\0')
-// 	{
-// 		if (input[i][j] == '+' || input[i][j] == '-')
-// 		{
-// 			if (!ft_isdigit(input[i][j + 1]))
-// 				error_exit();
-// 		}
-// 		else if (!ft_isdigit(input[i][j]))
-// 			error_exit();
-// 		j++;
-// 	}
-// 	add_to_list(stack_a, input, i);
-// }
-
-void    helper(char **input, int i, int j, t_list **stack_a)
+void	helper(char **input, int i, int j, t_list **stack_a)
 {
-    if (input[i][j] == '\0')
-        error_exit();
-    if (input[i][j] == '+' || input[i][j] == '-')
-    {
-        j++;
-        if (!ft_isdigit(input[i][j]))
-            error_exit();
-    }
-    while (input[i][j] != '\0')
-    {
-        if ((input[i][j] >= 32 && input[i][j] <= 47)
-            || (input[i][j] >= 58 && input[i][j] < 127))
-            error_exit();
-        if (!ft_isdigit(input[i][j]) && input[i][j] == '\n')
-            error_exit();
-        j++;
-    }
-    add_to_list(stack_a, input, i);
+	if (input[i][j] == '\0')
+		error_exit();
+	if (input[i][j] == '+' || input[i][j] == '-')
+	{
+		j++;
+		if (!ft_isdigit(input[i][j]))
+			error_exit();
+	}
+	while (input[i][j] != '\0')
+	{
+		if ((input[i][j] >= 32 && input[i][j] <= 47)
+			|| (input[i][j] >= 58 && input[i][j] < 127))
+			error_exit();
+		if (!ft_isdigit(input[i][j]) && input[i][j] == '\n')
+			error_exit();
+		j++;
+	}
+	add_to_list(stack_a, input, i);
 }
 
 void	parse_input(int argc, char **argv, t_list **stack_a)
@@ -77,7 +57,7 @@ void	parse_input(int argc, char **argv, t_list **stack_a)
 		while (input[++i] != NULL)
 			helper(input, i, j, stack_a);
 	}
-	free_2darray(input); 
+	free_2darray(input);
 }
 
 void	push_swap(t_list **stack_a, t_list **stack_b)
@@ -94,7 +74,7 @@ void	push_swap(t_list **stack_a, t_list **stack_b)
 			exit(0);
 		else
 		{
-			*stack_a = rescaling(*stack_a, len);
+			*stack_a = rescaling(stack_a, len);
 			if (len <= 5)
 				small_sort(stack_a, stack_b, len);
 			else
@@ -115,11 +95,11 @@ void	small_sort(t_list **stack_a, t_list **stack_b, int size)
 	if (size == 2)
 		swap_first_two(stack_a, 'a');
 	else if (size == 3)
-		*stack_a = sort_three_num(stack_a, top, mid, btm);
+		*stack_a = sort_three_num(stack_a);
 	else if (size == 4)
 		*stack_a = sort_four_num(stack_a, stack_b);
 	else if (size == 5)
-		*stack_a = sort_five_num(stack_a, stack_b);
+		*stack_a = sort_five_num(stack_a, stack_b, size);
 }
 
 void	exec_radix_sort(t_list **stack_a, t_list **stack_b)

@@ -34,7 +34,6 @@ int		is_sorted(t_list **stack);
 int		has_duplicates(t_list **stack);
 void	parse_input(int argc, char **argv, t_list **stack_a);
 void	helper(char **input, int i, int j, t_list **stack_a);
-// void	check_valid(char **argv, int i, int j);
 void	add_to_list(t_list **stack_a, char **argv, int i);
 
 // utils
@@ -48,49 +47,19 @@ void	error_exit(void);
 // radix sort
 int		find_max_bits(int max_num);
 int		find_max_index(t_list *stack);
-t_list	*rescaling(t_list *stack, int i);
+t_list	*rescaling(t_list **stack, int i);
 void	exec_radix_sort(t_list **stack_a, t_list **stack_b);
 void	radix_sort(t_list **stack_a, t_list **stack_b,
 			int max_index, int max_bits);
 
 // small sort
 void	small_sort(t_list **stack_a, t_list **stack_b, int size);
-t_list	*sort_three_num(t_list **stack_a,
-			t_list *top, t_list *mid, t_list *btm);
+t_list	*sort_three_num(t_list **stack_a);
+void	sort_three_num2(t_list **stack_a, t_list *top,
+			t_list *mid, t_list *btm);
 t_list	*sort_four_num(t_list **stack_a, t_list **stack_b);
 void	sort_four_num2(t_list **stack_a, t_list **stack_b);
-t_list	*sort_five_num(t_list **stack_a, t_list **stack_b);
+t_list	*sort_five_num(t_list **stack_a, t_list **stack_b, int len);
 void	sort_five_num2(t_list **stack_a, t_list **stack_b);
 
 #endif
-
-// while (top != NULL)
-// 	{
-// 		if (top->index != 0 && top->index != 1)
-// 		{
-// 			swap_first_two(stack_a, 'a');
-// 			top = *stack_a;
-// 		}
-// 		if (top->index != 0 && top->index != 1)
-// 		{
-// 			first_to_last(stack_a, 'a');
-// 			top = *stack_a;
-// 			first_to_last(stack_a, 'a');
-// 			top = *stack_a;
-// 		}
-// 		if (top->index == 0 || top->index == 1)
-// 		{
-// 			if (top->index == 0)
-// 			{
-// 				push(stack_b, stack_a, 'b');
-// 				top = *stack_a;
-// 				push(stack_b, stack_a, 'b');
-// 			}
-// 			else if (top->index == 1)
-// 			{
-// 				swap_first_two(stack_a, 'a');
-// 				push(stack_b, stack_a, 'b');
-// 				top = *stack_a;
-// 				push(stack_b, stack_a, 'b');
-// 			}
-// 		}

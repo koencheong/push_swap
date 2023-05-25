@@ -17,12 +17,9 @@ t_list	*find_max_unindexed(t_list *stack)
 	t_list	*max_node;
 	long	max_num;
 
-	max_node = NULL;
 	max_num = INT_MIN;
 	while (stack != NULL)
 	{
-		// if (stack->num == max_num && (stack->index == 0))
-		// 	return (NULL);
 		if (stack->index == 0 && stack->num >= max_num)
 		{
 			max_num = stack->num;
@@ -33,15 +30,15 @@ t_list	*find_max_unindexed(t_list *stack)
 	return (max_node);
 }
 
-t_list	*rescaling(t_list *stack, int size)
+t_list	*rescaling(t_list **stack_a, int size)
 {
 	t_list	*current;
 	t_list	*largest_num;
 
-	current = stack;
+	current = *stack_a;
 	while (size-- > 0)
 	{
-		largest_num = find_max_unindexed(stack);
+		largest_num = find_max_unindexed(*stack_a);
 		if (largest_num == NULL)
 			return (NULL);
 		largest_num->index = size;

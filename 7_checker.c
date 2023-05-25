@@ -76,15 +76,13 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit(0);
 	len = 0;
-	stack_a = malloc(sizeof(t_list));
 	stack_a = NULL;
-	stack_b = malloc(sizeof(t_list));
 	stack_b = NULL;
 	parse_input(argc, argv, &stack_a);
 	if (has_duplicates(&stack_a))
 		exit(0);
 	len = stack_len(stack_a, len);
-	stack_a = rescaling(stack_a, len);
+	stack_a = rescaling(&stack_a, len);
 	run_cmd(&stack_a, &stack_b);
 	if (is_sorted(&stack_a) && (stack_b == NULL))
 		ft_printf("OK\n");
